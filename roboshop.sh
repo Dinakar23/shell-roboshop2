@@ -11,7 +11,7 @@ do
     --image-id $AMI_ID \
     --instance-type t3.micro \
     --security-groups "roboshop-common" "roboshop-$instance" \
-    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=roboshop-$instance}]" \    
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=roboshop-$instance}]" \
     --query 'Instances[0].InstanceId' \
     --output text)
     echo "Instance ID : $INSTANCE_ID"
@@ -28,7 +28,7 @@ do
     fi
     #Updating route 53 record
     aws route53 change-resource-record-sets \
-        --hosted-zone-id Z0522495674LVI9OE7CB \
+        --hosted-zone-id  "$ZONE_ID "\
         --change-batch '{
             "Comment": "Updating mongodb record",
             "Changes": [
