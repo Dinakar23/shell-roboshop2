@@ -14,9 +14,9 @@ fi
 
 VALIDATE(){
     if [ $? -ne 0 ]; then
-        echo "$TIMESTAMP [ERROR] Failed" |tee -a $LOGS_FILE
+        echo "$TIMESTAMP [ERROR] $2 Failed" |tee -a $LOGS_FILE
     else
-        echo "$TIMESTAMP [INFO] Success" |tee -a $LOGS_FILE
+        echo "$TIMESTAMP [INFO] $2 Success" |tee -a $LOGS_FILE
     fi
 }
 
