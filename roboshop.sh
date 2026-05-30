@@ -4,8 +4,6 @@ AMI ID=ami-0220d79f3f480ecf5
 DOMAIN_NAME=dinakardevops.online
 ZONE_ID = Z0522495674LVI9OE7CB
 
-
-
 for instance in "$@"
 do 
     echo "Laucnching $instance Instance "
@@ -28,7 +26,6 @@ do
         --output text)
         R53_RECORD="$instance"."$DOMAIN_NAME"
     fi
-
     #Updating route 53 record
     aws route53 change-resource-record-sets \
         --hosted-zone-id Z0522495674LVI9OE7CB \
