@@ -13,7 +13,7 @@ TIMESTAMP=$(date '+%Y-%M-%D %H:%M:%S')
 fi
 
 VALIDATE(){
-    if [ $? -ne 0 ]; then
+    if [ $1 -ne 0 ]; then
         echo "$TIMESTAMP [ERROR] $2 Failed" |tee -a $LOGS_FILE
     else
         echo "$TIMESTAMP [INFO] $2 Success" |tee -a $LOGS_FILE
