@@ -13,9 +13,9 @@ fi
 
 VALIDATE(){
     if [ $? -ne 0 ]; then
-        echo "Installation Failed" |tee -a $LOGS_FILE
+        echo " Failed" |tee -a $LOGS_FILE
     else
-        echo "Installation Success" |tee -a $LOGS_FILE
+        echo " Success" |tee -a $LOGS_FILE
     fi
 }
 
