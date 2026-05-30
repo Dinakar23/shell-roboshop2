@@ -24,4 +24,8 @@ get_instance_id(){
     aws ec2 describe-instances --filters "Name=tag:Name,Values=Robosho-$NAME" --query 'Reservations[].Instances[].InstanceId' --output text
 }
 
-
+for instance in "$@"
+do 
+    INSTANCE_ID=$(get_instance_id $instance)
+    if 
+done
