@@ -1,19 +1,22 @@
 #!/bin/bash
-
-USER_ID=$( id  -u)
+LOGS_FOLDER="/var/log/roboshop2"
+sudo mkdir -p $LOGS_FOLDER
+sudo chown -R ec2-user:ec2-user $LOGS_FOLDER
+sudo chmod -R 755 $LOGS_FOLDER
+LOGS_FILE="$LOGS_FOLDER/$0.log "
  
  if [ "$USER_ID" -ne 0 ]; then
-    echo "Run this script with sudo access ..."
+    echo "Run this script with root access ..." |tee -a $LOGS_FILE
     exit 1
 fi
 
-dnf list installed mysql
- if [ $? -ne 0 ]; then
-    echo "Installing Mysql"
-    dnf install mysql -y
+VALIDATE(){
     if [ $? -ne 0 ]; then
-        echo "Installation Failed"
+        echo "Installation Failed" |tee -a $LOGS_FILE
     else
-        echo "Installation Success"
+        echo "Installation Success" |tee -a $LOGS_FILE
     fi
-fi
+}
+
+cp mongo.repo /etc/yum.repos.d/mongo.repo
+VALIDATE $? "Adding mongodb repo" 
