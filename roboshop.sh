@@ -28,7 +28,7 @@ do
     fi
     #Updating route 53 record
     aws route53 change-resource-record-sets \
-        --hosted-zone-id  "$ZONE_ID "\
+        --hosted-zone-id "$ZONE_ID"\
         --change-batch '{
             "Comment": "Updating mongodb record",
             "Changes": [
