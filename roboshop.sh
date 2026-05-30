@@ -13,7 +13,7 @@ fi
 ACTION=$1
 shift
 
-if [ "$ACTION" != "create"] && [ "$ACTION" != "delete"]; then
+if [ "$ACTION" != "create"] && [ "$ACTION" != "delete" ]; then
     echo "The first argument must be  [create/delete] "
     echo " USAGE : [create/delete] [instance1][instance2]"
     exit 1
